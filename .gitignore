@@ -1,0 +1,10 @@
+*.js
+
+# OS specific
+.DS_Store
+
+# Redundant files
+*.log
+*.bak
+*.tmp
+
