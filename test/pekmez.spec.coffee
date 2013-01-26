@@ -3,9 +3,11 @@
 describe 'Pekmez', ->
 
    beforeEach: () ->
+      script1 = sinon.stub()
+      script2 = sinon.stub()
+
       document =
-         getElementsByTagName: (tagName) ->
-            []
+         getElementsByTagName = sinon.stub().returns([script1, script2])
 
    it 'should get contents of all the script blocks when language is pekmez', ->
       pekmez = new Pekmez

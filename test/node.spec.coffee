@@ -2,7 +2,7 @@
 
 describe 'Node', ->
 
-    it 'should tests instance label', ->
+   it 'should tests instance label', ->
       node = new Node 'circle'
       node.label.should.equal 'circle'
 
