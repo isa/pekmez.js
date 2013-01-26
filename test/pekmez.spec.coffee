@@ -13,3 +13,7 @@ describe 'Pekmez', ->
 
       actual[0].type.should.equal 'network'
       actual[0].content.should.equal 'A -> B'
+
+   it 'should create a new Pekmez instance', ->
+      pekmez = new Pekmez
+
