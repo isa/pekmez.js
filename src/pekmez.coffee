@@ -1,8 +1,14 @@
 class Pekmez
    constructor: () ->
 
-   all: () ->
-      [new Content('network', 'A -> B')]
+   all: (d = document) ->
+      found = []
+      scripts = this.$ 'script', d
+      for script in scripts
+         if script.type is 'text/pekmez'
+            found.push new Content(script.getAttribute('data-type'), script.innerHTML)
+
+      found
 
    $: (locator, d = document) ->
       [first, rest...] = locator
@@ -15,8 +21,7 @@ class Pekmez
       d.getElementsByTagName locator
 
 class Content
-   constructor: (type, content) ->
-      @type = type
+   constructor: (@type, content) ->
       @content = content.trim()
 
 root = exports ? window

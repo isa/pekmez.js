@@ -10,21 +10,31 @@ describe 'Pekmez', ->
    #    document.
 
    it 'should get contents of all the script blocks when language is pekmez', ->
-      # script1 = sinon.stub()
-      # script2 = sinon.stub()
-
-      # sinon.stub(document, 'getElementsByTagName').withArgs('script').returns([
-      #    script1,
-      #    script2
-      # ])
+      document = domino.createWindow('<script type="text/pekmez"></script>').document
 
       pekmez = new Pekmez
-      [actual, rest] = pekmez.all()
+      actual = pekmez.all document
 
-      actual.type.should.equal 'network'
-      actual.content.should.equal 'A -> B'
+      actual.length.should.equal 1
 
-      # byTag.called.should.be true
+   it 'should not get any of the script blocks when language is not pekmez', ->
+      document = domino.createWindow('<script type="text/javascript"></script>').document
+
+      pekmez = new Pekmez
+      actual = pekmez.all document
+
+      actual.length.should.equal 0
+
+   it 'should identify the script type and the content', ->
+      expected_type = 'network'
+      expected_content = 'A -> B'
+      document = domino.createWindow("<script type='text/pekmez' data-type='#{expected_type}'>#{expected_content}</script>").document
+
+      pekmez = new Pekmez
+      [actual, rest...] = pekmez.all document
+
+      actual.type.should.equal expected_type
+      actual.content.should.equal expected_content
 
    it 'should find dom elements by tag', ->
       document = domino.createWindow('<p></p>').document
