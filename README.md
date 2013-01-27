@@ -1,5 +1,9 @@
 # pekmez.js
 
+### Build Status
+
+[![Build Status](https://secure.travis-ci.org/isa>/pekmez.js.png)](http://travis-ci.org/is/pekmez.js)
+
 ### Installation
 
 If you want to develop extensions for `pekmez.js` make sure that you have `nodeJS`, `coffee-script`, `mocha`, `sinon`, `domino` and `should`:
