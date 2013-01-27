@@ -2,17 +2,23 @@
 
 ### Installation
 
-If you want to develop extensions for `pekmez.js` make sure that you have `nodeJS`, `coffee-script`, `mocha`, `sinon` and `should`:
+If you want to develop extensions for `pekmez.js` make sure that you have `nodeJS`, `coffee-script`, `mocha`, `sinon`, `domino` and `should`:
 
 ```bash
 $ brew install nodejs
-$ npm install -g coffee-script mocha should
+$ npm install -g coffee-script mocha should sinon domino
+```
+
+Assuming you have the correct NPM setup.. If not, do something like this:
+
+```bash
+echo 'export NODE_PATH="'$(npm root -g)'"' >> ~/.bashrc
 ```
 
 To execute unit tests:
 
 ```bash
-$ mocha --compilers coffee:coffee-script -r should -r sinon tests
+$ mocha
 ```
 
 ### Usage

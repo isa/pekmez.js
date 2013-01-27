@@ -2,3 +2,4 @@
 --reporter dot
 --require sinon
 --require should
+--require domino
