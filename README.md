@@ -2,7 +2,7 @@
 
 ### Build Status
 
-[![Build Status](https://secure.travis-ci.org/isa>/pekmez.js.png)](http://travis-ci.org/is/pekmez.js)
+[![Build Status](https://travis-ci.org/isa/pekmez.js.png?branch=master)](https://travis-ci.org/isa/pekmez.js)
 
 ### Installation
 
