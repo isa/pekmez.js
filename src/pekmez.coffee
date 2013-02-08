@@ -20,6 +20,12 @@ class Pekmez
 
       d.getElementsByTagName locator
 
+   init: (content) ->
+      return {
+         nodes: ['A', 'B']
+         edges: [{'A': 'B'}]
+      }
+
 class Content
    constructor: (@type, content) ->
       @content = content.trim()

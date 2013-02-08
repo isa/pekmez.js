@@ -61,3 +61,20 @@ describe 'Pekmez', ->
       actual = pekmez.$ ".#{locator}", document
 
       actual.length.should.equal 1
+
+   it 'should create a graph with 2 nodes and one edge', ->
+      content = 'A -> B'
+
+      pekmez = new Pekmez
+      actual = pekmez.init content
+
+      actual.nodes.length.should.equal 2
+      actual.edges.length.should.equal 1
+
+   # it 'should create a graph with 1 node and no edges', ->
+   #    content = 'A'
+
+   #    pekmez = new Pekmez
+   #    actual = pekmez.init content
+
+   #    actual.nodes.length.should.equal 1
