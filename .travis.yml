@@ -4,10 +4,10 @@ node_js:
    - 0.8.17
 
 env:
-   - NODE_PATH=/home/travis/.nvm/v0.8.17/lib/node_modules
+   - NODE_PATH=./node_modules
 
 before_script:
-   - "npm install -g coffee-script mocha should sinon domino"
+   - "npm install coffee-script mocha should sinon domino"
 
 script:
    - "mocha"
