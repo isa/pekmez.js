@@ -21,10 +21,28 @@ class Pekmez
       d.getElementsByTagName locator
 
    init: (content) ->
-      return {
-         nodes: ['A', 'B']
-         edges: [{'A': 'B'}]
-      }
+      statements = get_statements content
+      nodes = []
+      edges = []
+
+      (get_nodes statement for statement in statements).map (x) ->
+         nodes.push node for node in x when node not in nodes
+
+      edges.push get_edge statement for statement in statements
+
+      edges = edges.filter (edge) -> edge isnt null
+      
+      return {nodes, edges}
+
+   get_statements = (content) -> content.split /\n/
+
+   get_nodes = (statement) -> statement.split /-[><]?/
+
+   get_edge = (statement) ->
+      match = /-[><]?/.exec statement
+      if match isnt null
+         return match[0]
+      return null
 
 class Content
    constructor: (@type, content) ->
